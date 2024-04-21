@@ -75,3 +75,37 @@ def order(sentence):
                 count += 1
                 result_str += i+' '
     return(result_str[:-1])
+
+
+# Two Sum
+# Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+# You may assume that each input would have exactly one solution, and you may not use the same element twice.
+# You can return the answer in any order.
+class Solution(object):
+    def twoSum(self, nums, target):
+        n = len(nums)
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+                
+
+# Roman to Integer
+# Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+# For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
+# Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
+# Given a roman numeral, convert it to an integer.
+class Solution(object):
+    def romanToInt(self, num):
+        roman_dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        final_num = 0
+        prev_value = 0
+        
+        for char in reversed(num):
+            value = roman_dict[char]
+            if value < prev_value:
+                final_num -= value
+            else:
+                final_num += value
+            prev_value = value
+        return final_num
