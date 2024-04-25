@@ -109,3 +109,24 @@ class Solution(object):
                 final_num += value
             prev_value = value
         return final_num
+    
+
+# Palindrome Number
+# Given an integer x, return true if x is a palindrome, and false otherwise.
+def isPalindrome(self, x):
+        if str(x) == str(x)[::-1]:
+            return True
+        else:
+            return False
+        
+        
+# Longest Common Prefix
+# Write a function to find the longest common prefix string amongst an array of strings.
+# If there is no common prefix, return an empty string "".
+def longestCommonPrefix(self, strs):
+        first_word = strs[0]
+        for i in range(len(first_word)):
+            for j in strs[1:]:
+                if (i == len(j)) or j[i] != first_word[i]:
+                    return first_word[0:i]
+        return first_word
