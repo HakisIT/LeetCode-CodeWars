@@ -130,3 +130,29 @@ def longestCommonPrefix(self, strs):
                 if (i == len(j)) or j[i] != first_word[i]:
                     return first_word[0:i]
         return first_word
+
+
+# Valid Parentheses
+# Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+# An input string is valid if:
+# Open brackets must be closed by the same type of brackets.
+# Open brackets must be closed in the correct order.
+# Every close bracket has a corresponding open bracket of the same type.
+def isValid(self, s):
+    l = []
+    for i in s:
+        if i in ['(','[','{']:
+            l.append(i)
+        else:
+            length = len(l)
+            if length>0:
+                if i==')' and l.pop()=='(' or i==']' and l.pop()=='[' or i=='}' and l.pop()=='{':
+                    pass
+                else:
+                    return False
+            else: 
+                return False
+    if l==[]:
+        return True
+    else:
+        return False
